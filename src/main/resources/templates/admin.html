@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="../static/css/admin.css">
+</head>
+<body>
+<div class="admin-dashboard">
+  <header>
+    <div class="admin-info">
+      <div class="avatar"></div>
+      <h2>Admin</h2>
+      <p>admin@gmail.com</p>
+    </div>
+    <div class="logout">
+      <button id="logout-btn" onclick="logout()">Log Out</button>
+    </div>
+  </header>
+
+  <!-- User List  -->
+  <div class="user-management">
+    <div class="search-user">
+      <input type="text" placeholder="Search user" id="input" oninput="searchInput()">
+    </div>
+
+    <div class="user-list">
+
+      <ul id="userList">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          
+          <!-- Add other columns as needed -->
+        </tr>
+        </thead>
+        <tbody>
+        <!-- User rows will be inserted here -->
+        </tbody>
+      </ul>
+    </div>
+  </div>
+
+
+  <!--Food Management  -->
+  <div class="food-management">
+    <h2>Manage Food Entries</h2>
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Food Item</th>
+        <th>Calories</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody id="foodTableBody">
+      <!-- Dynamic rows will be added here -->
+      </tbody>
+    </table>
+    <button class="btn" onclick="addNewFoodEntry()">Add New Entry</button>
+  </div>
+
+  <!-- Reports Section -->
+  <section id="reports" class="reports">
+    <h2>Weekly reports</h2>
+    <button onclick="generateReport()">Generate Report</button>
+  </section>
+  <section id="weekly-statistics" class="weekly-statistics">
+    <h3>Weekly Statistics</h3>
+    <ul id="weeklyStatisticsList">
+      <!-- Dynamic weekly statistics will be added here -->
+    </ul>
+  </section>
+
+  <!-- Users Exceeding Monthly Limit -->
+  <div class="exceeded-limit-section">
+    <h2>Users Exceeding Monthly Limit</h2>
+    <table>
+      <thead>
+      <tr>
+        <th>User ID</th>
+        <th>Exceeded Amount</th>
+      </tr>
+      </thead>
+      <tbody id="exceededLimitTableBody">
+      <!-- Dynamic rows will be added here -->
+      </tbody>
+    </table>
+    <button class="btn" onclick="fetchUsersExceedingLimit()">Refresh List</button>
+  </div>
+
+
+
+
+</div>
+<script src="../static/js/admin.js"></script>
+
+
+</body>
+</html>

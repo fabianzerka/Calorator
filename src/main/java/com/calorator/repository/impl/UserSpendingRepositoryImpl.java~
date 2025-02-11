@@ -1,0 +1,23 @@
+package com.calorator.repository.impl;
+
+import com.calorator.entity.UserSpendingEntity;
+import com.calorator.repository.UserSpendingRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public class UserSpendingRepositoryImpl {
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    public List<UserSpendingEntity> findCustomByUserId(Long userId) {
+        String query = "SELECT u FROM UserSpendingEntity u WHERE u.userId = :userId";
+        return entityManager.createQuery(query, UserSpendingEntity.class)
+                .setParameter("userId", userId)
+                .getResultList();
+    }
+}
